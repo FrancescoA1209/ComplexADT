@@ -13,15 +13,25 @@
 using namespace std;
 
 //========================================================
-//
-//
-// 
 // setReal access method
 //========================================================
+void Complex::setReal ( float r )
+{
+    float realNum = r;
+}
 
 //========================================================
 // getReal access method
+// Francesco Assalone
+// Parameters : void ( n/a )
+// Returns : float realNum
+// 
+// Gets the real part of the complex number
 //========================================================
+float Complex::getReal ( void )
+{
+    return realNum;
+}
 
 //========================================================
 // setImag
@@ -64,9 +74,19 @@ using namespace std;
 //========================================================
 
 //========================================================
-// equality operator
+// Equality operator
+// Francesco Assalone
+// Parameters : 
+// Returns : 
+// 
+// Returns equal if both real and imaginary parts are equal
 //========================================================
-
+bool Complex::operator== ( Complex c1 ){
+    if ( c1 == c2 ){
+        return true;
+    }
+    else { return false; } 
+}
 //========================================================
 // inequality operator
 //========================================================
