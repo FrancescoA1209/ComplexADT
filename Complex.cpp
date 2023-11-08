@@ -31,7 +31,7 @@ Complex::Complex ( float x, float y )
 //========================================================
 void Complex::setReal ( float r )
 {
-    float real = r;
+    real = r;
 }
 
 //========================================================
@@ -49,6 +49,11 @@ float Complex::getReal ( void ) const
 
 //========================================================
 // setImag
+// Francesco Assalone
+// Parameters : float i
+// Returns : N/A
+// 
+// Sets the imaginary number for the Complex object
 //========================================================
 void Complex::setImag( float i )
 {
@@ -56,8 +61,13 @@ void Complex::setImag( float i )
 }
 //========================================================
 // getImag
+// Francesco Assalone
+// Parameters : N/A
+// Returns : Imaginary number "Imag"
+// 
+// Returns the imaginary number of the Complex object
 //========================================================
-float Complex::getImag () const 
+float Complex::getImag() const 
 {
     return Imag;
 
@@ -68,39 +78,66 @@ float Complex::getImag () const
 
 //========================================================
 // addition operators
+// Francesco Assalone
+// Parameters : float f
+// Returns : A Complex object
+// 
+// Overloading the addition function to become usable 
+// with floats.
 //========================================================
 Complex Complex::operator+ ( float f ) const 
 {
     return Complex(real + f, Imag);
 }
 //========================================================
-// subtraction operators
+// Subtraction operators
+// Francesco Assalone
+// Parameters : Complex object
+// Returns : Complex object with adjusted values
+// 
+// This function overloads the subtraction operator for the
+// Complex class. It subtracts both the real and imaginary 
+// parts of the input Complex object from the corresponding 
+// parts of the current object.
 //========================================================
 Complex Complex::operator- (const Complex &c ) const 
 {
     return Complex(real - c.getReal(), Imag + c.getImag());
 }
 //========================================================
-// multiplication operators
+// Multiplication operator
+// Author: Francesco Assalone
+// Parameters: const Complex &c - A Complex object
+// Returns: Complex object with adjusted values
+// 
+// This function overloads the multiplication operator for the
+// Complex class. It multiplies the current object with the 
+// input Complex object 'c' following the rules of complex 
+// number multiplication.
 //========================================================
-Complex Complex::operator*(const Complex &c) const 
-{ 
+Complex Complex::operator* (const Complex &c) const 
+{
     return Complex(real * c.getReal() - Imag * c.getImag(), real * c.getImag() + Imag * c.getReal()); 
 }
 //========================================================
-// Division Operator
-// Francesco Assalone
-// Parameters : Complex object "C"
-// Returns : Complex object with the correctly calculated real and imaginary parts
+// Division operator
+// Author: Francesco Assalone
+// Parameters: float f - A float value
+// Returns: Complex object with adjusted values
 // 
-// This function supports division between two complex numbers
+// This function overloads the division operator for the
+// Complex class. It divides the real and imaginary parts 
+// of the current object by the input float 'f', if 'f' is 
+// not zero. If 'f' is zero, it outputs an error message.
 //========================================================
-Complex Complex::operator/ ( float f ) const{
+Complex Complex::operator/ (float f) const 
+{
     if (f == 0.0){
         cout << "Cannot divide by 0" << endl;
     }
-    return Complex(real / f, Imag / f)
+    return Complex(real / f, Imag / f);
 }
+
 //========================================================
 // exponentiation
 //========================================================
